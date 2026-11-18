@@ -422,19 +422,35 @@ do
   -- Change the name of the colorscheme plugin below, and then
   -- change the command under that to load whatever the name of that colorscheme is.
   --
-  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
-    },
-  }
+  -- -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  -- vim.pack.add { gh 'folke/tokyonight.nvim' }
+  -- ---@diagnostic disable-next-line: missing-fields
+  -- require('tokyonight').setup {
+  --   styles = {
+  --     comments = { italic = false }, -- Disable italics in comments
+  --   },
+  -- }
+  --
+  -- -- Load the colorscheme here.
+  -- -- Like many other themes, this one has different styles, and you could load
+  -- -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  -- vim.cmd.colorscheme 'tokyonight-night'
 
-  -- Load the colorscheme here.
-  -- Like many other themes, this one has different styles, and you could load
-  -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  vim.cmd.colorscheme 'tokyonight-night'
+  -- vim.pack.add { gh 'navarasu/onedark.nvim' }
+  -- require('onedark').setup {
+  --   style = 'warmer',
+  --   toggle_style_key = '<leader>ts', -- Press Space + t + s to cycle through all 7 styles live!
+  -- }
+  -- vim.cmd.colorscheme 'onedark'
+
+  vim.pack.add { gh 'neanias/everforest-nvim' }
+  require('everforest').setup {
+    background = 'hard',
+    disable_italic_comments = false,
+    transparent_background_level = 0,
+    float_style = 'dim',
+  }
+  vim.cmd.colorscheme 'everforest'
 
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
@@ -944,6 +960,8 @@ do
   --
   --  See `:help nvim-treesitter-intro`
 
+  vim.env.CC = 'x86_64-w64-mingw32-clang'
+  vim.env.CFLAGS = '--target=x86_64-w64-mingw32'
   -- NOTE: You can also specify a branch or a specific commit
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
@@ -1023,7 +1041,7 @@ do
   -- NOTE: You can add your own plugins, configuration, etc. in `lua/custom/plugins/*.lua`.
   --
   -- For independent modules, uncomment the convenience loader:
-  -- require 'custom.plugins'
+  require 'custom.plugins'
   --
   -- `custom.plugins` automatically loads files from that directory, but their
   -- order is unspecified. If plugins depend on each other, keep them in the same

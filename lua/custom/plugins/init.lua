@@ -12,3 +12,8 @@ for file_name, type in vim.fs.dir(plugins_dir, { follow = true }) do
     require('custom.plugins.' .. module)
   end
 end
+vim.pack.add {
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
+}
+
+require('render-markdown').setup {}
